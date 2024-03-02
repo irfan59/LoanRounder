@@ -9,7 +9,7 @@ const SplashScreen: React.FC<any> = ({navigation}) => {
   }, []);
   const Verify = () => {
     setTimeout(() => {
-      navigation.navigate('CreateAccount');
+      navigation.navigate('SingIn');
     }, 2000);
   };
   return (

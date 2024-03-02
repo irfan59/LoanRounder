@@ -7,10 +7,10 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import React from 'react';
-import {styles} from '../Css/AuthenticationCss/CreateAccountCss';
+import {styles} from '../Css/AuthenticationCss/SingInCss';
 import {CommonStyles} from '../Css/CommonCss';
 
-const CreateAccount: React.FC<any> = ({navigation}) => {
+const SingIn: React.FC<any> = ({navigation}) => {
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
   return (
@@ -38,47 +38,40 @@ const CreateAccount: React.FC<any> = ({navigation}) => {
         />
       </View>
       <View style={CommonStyles.center}>
-        <Text style={CommonStyles.heading}>Create Account</Text>
+        <Text style={CommonStyles.heading}>Sing In</Text>
         <View style={[CommonStyles.main, {gap: 10}]}>
           <View>
             <View style={CommonStyles.maintextinput}>
               <TextInput
                 placeholderTextColor={'#000'}
-                placeholder="Full Name"
+                placeholder="Your Email"
                 style={CommonStyles.textinput}
               />
             </View>
             <View style={CommonStyles.maintextinput}>
               <TextInput
                 placeholderTextColor={'#000'}
-                placeholder="Email"
-                style={CommonStyles.textinput}
-              />
-            </View>
-            <View style={CommonStyles.maintextinput}>
-              <TextInput
-                placeholderTextColor={'#000'}
-                placeholder="Password"
-                style={CommonStyles.textinput}
-              />
-            </View>
-            <View style={CommonStyles.maintextinput}>
-              <TextInput
-                placeholderTextColor={'#000'}
-                placeholder="Confirm Password"
+                placeholder="Enter Password"
                 style={CommonStyles.textinput}
               />
             </View>
           </View>
-
-          <TouchableOpacity style={[CommonStyles.btn, CommonStyles.center]}>
-            <Text style={CommonStyles.btntext}>Sing Up</Text>
+          <View style={CommonStyles.center}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('ForgotPassword')}>
+              <Text style={[CommonStyles.colortext]}>Forgot Password?</Text>
+            </TouchableOpacity>
+          </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Dashboard')}
+            style={[CommonStyles.btn, CommonStyles.center]}>
+            <Text style={CommonStyles.btntext}>Continue</Text>
           </TouchableOpacity>
           <View style={CommonStyles.center}>
             <TouchableOpacity
               onPress={() => navigation.navigate('CreateAccount')}>
               <Text style={CommonStyles.colortext}>
-                Already have a account? Sing in
+                Don't have an account? Sing up
               </Text>
             </TouchableOpacity>
           </View>
@@ -88,4 +81,4 @@ const CreateAccount: React.FC<any> = ({navigation}) => {
   );
 };
 
-export default CreateAccount;
+export default SingIn;
