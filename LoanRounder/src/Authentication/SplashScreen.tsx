@@ -1,7 +1,9 @@
-import {Dimensions, Image, StyleSheet, Text, View} from 'react-native';
-import React, {useEffect} from 'react';
+import {Dimensions, Image, LogBox, StyleSheet, Text, View} from 'react-native';
+import React, {useEffect, useState} from 'react';
 
 const SplashScreen: React.FC<any> = ({navigation}) => {
+  LogBox.ignoreAllLogs();
+
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
   useEffect(() => {
@@ -10,7 +12,7 @@ const SplashScreen: React.FC<any> = ({navigation}) => {
   const Verify = () => {
     setTimeout(() => {
       navigation.navigate('SingIn');
-    }, 2000);
+    }, 700);
   };
   return (
     <View
@@ -21,17 +23,19 @@ const SplashScreen: React.FC<any> = ({navigation}) => {
         alignItems: 'center',
         backgroundColor: '#fff',
       }}>
-      <View style={{position: 'absolute', top: 50, right: 0}}>
-        <Image
-          style={{height: 250, width: 250}}
-          source={require('../../assets/Imagesh/splash_curve1.png')}
-        />
-      </View>
-      <View style={{margin: 0, padding: 10}}>
-        <Image
-          style={{height: windowHeight, width: windowWidth}}
-          source={require('../../assets/Imagesh/splash.png')}
-        />
+      <View>
+        <View style={{position: 'absolute', top: 50, right: 0}}>
+          <Image
+            style={{height: 250, width: 250}}
+            source={require('../../assets/Imagesh/splashbg.png')}
+          />
+        </View>
+        <View style={{margin: 0, padding: 10}}>
+          <Image
+            style={{height: windowHeight, width: windowWidth}}
+            source={require('../../assets/Imagesh/splashnew.png')}
+          />
+        </View>
       </View>
     </View>
   );

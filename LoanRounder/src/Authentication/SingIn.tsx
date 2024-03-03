@@ -5,14 +5,29 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  BackHandler,
 } from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import {styles} from '../Css/AuthenticationCss/SingInCss';
 import {CommonStyles} from '../Css/CommonCss';
 
 const SingIn: React.FC<any> = ({navigation}) => {
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
+  const HandelBackPress = () => {
+    if (navigation.isFocused()) {
+      return true;
+    }
+    return false;
+  };
+  useEffect(() => {
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      HandelBackPress,
+    );
+
+    return () => backHandler.remove();
+  }, []);
   return (
     <View
       style={{

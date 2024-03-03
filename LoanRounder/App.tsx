@@ -8,6 +8,7 @@ import ForgotPassword from './src/Authentication/ForgotPassword';
 import Dashboard from './src/Shared/Dashboard';
 import AboutUs from './src/Master/AboutUs';
 import TearmCondition from './src/Master/TearmCondition';
+import Profile from './src/Master/Profile';
 
 const Stack = createNativeStackNavigator();
 
@@ -48,6 +49,11 @@ function App(): JSX.Element {
         <Stack.Screen
           name="Tearm"
           component={TearmCondition}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Profile"
+          component={Profile}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

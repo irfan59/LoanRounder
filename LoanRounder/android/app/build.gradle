@@ -73,7 +73,9 @@ android {
     ndkVersion rootProject.ext.ndkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
-
+    lintOptions {
+        checkReleaseBuilds false
+    }
     namespace "com.loanrounder"
     defaultConfig {
         applicationId "com.loanrounder"

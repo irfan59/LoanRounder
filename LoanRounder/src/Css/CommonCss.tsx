@@ -7,6 +7,11 @@ export const CommonStyles = StyleSheet.create({
     color: '#000',
     fontWeight: '900',
   },
+  headingsmall: {
+    fontSize: 18,
+    color: '#000',
+    fontWeight: '900',
+  },
   text: {
     fontSize: getFontSize(14),
     color: '#000',
@@ -35,7 +40,9 @@ export const CommonStyles = StyleSheet.create({
     backgroundColor: '#7415C0',
     paddingVertical: 15,
   },
-  btntext: {},
+  btntext: {
+    color: '#fff',
+  },
   sidebarlist: {
     flexDirection: 'row',
     alignItems: 'center',

@@ -8,16 +8,27 @@ import {
 } from 'react-native';
 import React from 'react';
 import {CommonStyles} from '../Css/CommonCss';
+import {useRoute} from '@react-navigation/native';
 
-const Footer = (navigation: any) => {
+const Footer: React.FC<any> = ({navigation}) => {
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
+  let route = useRoute();
+  let screenName = route.name;
+  console.log(screenName);
+
   return (
     <View
       style={{height: windowHeight, width: windowWidth, position: 'absolute'}}>
       <View style={styles.container}>
         <TouchableOpacity
-          style={styles.main}
+          style={[
+            styles.main,
+            screenName == 'Dashboard' && {
+              borderTopColor: '#7415C0',
+              borderTopWidth: 3,
+            },
+          ]}
           onPress={() => navigation.navigate('Dashboard')}>
           <Image
             style={styles.img}
@@ -25,7 +36,15 @@ const Footer = (navigation: any) => {
           />
           <Text style={CommonStyles.text}>Home</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.main}>
+        <TouchableOpacity
+          style={[
+            styles.main,
+            screenName == 'Profile' && {
+              borderTopColor: '#7415C0',
+              borderTopWidth: 3,
+            },
+          ]}
+          onPress={() => navigation.navigate('Profile')}>
           <Image
             style={styles.img}
             source={require('../../assets/Imagesh/profile.png')}
@@ -61,13 +80,13 @@ const styles = StyleSheet.create({
     zIndex: 999,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    paddingVertical: 10,
     borderTopWidth: 0.5,
     borderColor: 'grey',
   },
   main: {
     justifyContent: 'center',
     alignItems: 'center',
+    paddingVertical: 10,
   },
   img: {},
 });
