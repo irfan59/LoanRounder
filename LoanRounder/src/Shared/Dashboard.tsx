@@ -4,108 +4,61 @@ import Footer from './Footer';
 import {CommonStyles} from '../Css/CommonCss';
 import SideMenu from 'react-native-side-menu';
 import {styles} from '../Css/Shared/DashboardCss';
+import {SidebarMenuData} from '../Components/SidebarMenu';
+import Header from '../Components/Header';
 const Dashboard: React.FC<any> = ({navigation}) => {
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-  const menu = (
-    <View
-      style={{
-        backgroundColor: '#7415C0',
-        width: windowWidth / 1.2,
-        height: windowHeight,
-      }}>
-      <View style={[CommonStyles.center, {marginVertical: 25}]}>
-        <Image source={require('../../assets/Imagesh/whitelogo.png')} />
-      </View>
-      <View style={{padding: 15, gap: 30}}>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/editprofile.png')} />
-          <Text style={CommonStyles.sidebartext}>Edit Profile</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/settingwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Settings</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/paymentwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Payment Account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/loanwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Loan Account</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/analyticswhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Analytics</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/supportwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Support</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image
-            source={require('../../assets/Imagesh/notificationwhite.png')}
-          />
-          <Text style={CommonStyles.sidebartext}>Notification</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/logoutwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Logout</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={CommonStyles.sidebarlist}
-          onPress={() => navigation.navigate('AboutUs')}>
-          <Image source={require('../../assets/Imagesh/logoutwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>About Us</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={CommonStyles.sidebarlist}>
-          <Image source={require('../../assets/Imagesh/logoutwhite.png')} />
-          <Text style={CommonStyles.sidebartext}>Tearm & Condition</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
-  );
   return (
-    <SideMenu
-      menu={menu}
-      isOpen={isOpen}
-      onChange={(isOpen: any) => setIsOpen(isOpen)}
-      openMenuOffset={windowWidth / 1.2}>
-      <View
-        style={{
-          height: windowHeight,
-          width: windowWidth,
-          backgroundColor: '#fff',
-        }}>
+    <>
+      <SideMenu
+        menu={<SidebarMenuData navigation={navigation} />}
+        isOpen={isOpen}
+        onChange={(isOpen: any) => setIsOpen(isOpen)}
+        openMenuOffset={windowWidth / 1.2}>
         <View
           style={{
-            position: 'absolute',
             height: windowHeight,
             width: windowWidth,
+            backgroundColor: '#fff',
           }}>
-          <Image
+          <View
             style={{
+              position: 'absolute',
               height: windowHeight,
               width: windowWidth,
-              backgroundColor: 'transparent',
-            }}
-            source={require('../../assets/Imagesh/body_bg1.png')}
-          />
+            }}>
+            <Image
+              style={{
+                height: windowHeight,
+                width: windowWidth,
+                backgroundColor: 'transparent',
+              }}
+              source={require('../../assets/Imagesh/body_bg1.png')}
+            />
+          </View>
+          <View
+            style={[
+              CommonStyles.padding,
+              {
+                height: 50,
+                justifyContent: 'center',
+              },
+              ,
+            ]}>
+            <TouchableOpacity onPress={toggleMenu}>
+              <Image source={require('../../assets/Imagesh/menu.png')} />
+            </TouchableOpacity>
+          </View>
+          <Footer navigation={navigation} />
         </View>
-        <View style={CommonStyles.padding}>
-          <TouchableOpacity onPress={toggleMenu}>
-            <Image source={require('../../assets/Imagesh/menu.png')} />
-          </TouchableOpacity>
-        </View>
-        <Footer navigation={navigation} />
-      </View>
-    </SideMenu>
+      </SideMenu>
+    </>
   );
 };
 

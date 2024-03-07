@@ -7,13 +7,48 @@ import {
   TouchableOpacity,
   BackHandler,
 } from 'react-native';
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {styles} from '../Css/AuthenticationCss/SingInCss';
 import {CommonStyles} from '../Css/CommonCss';
+import {
+  GoogleSignin,
+  statusCodes,
+  GoogleSigninButton,
+} from '@react-native-google-signin/google-signin';
 
 const SingIn: React.FC<any> = ({navigation}) => {
   let windowHeight = Dimensions.get('window').height;
   let windowWidth = Dimensions.get('window').width;
+  const [userInfo, setUserInfo] = useState('');
+  useEffect(() => {
+    GoogleSignin.configure({
+      webClientId:
+        '728968031594-dup5e936a3p0ikq4687ev1vpi1pq4pb4.apps.googleusercontent.com',
+    });
+  }, []);
+  console.log('opopopopopo');
+
+  const signIn = async () => {
+    console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii');
+    try {
+      await GoogleSignin.hasPlayServices();
+      const userInfo: any = await GoogleSignin.signIn();
+      console.log('uuuuuuuuuuuuuuuuuuuuuuuuu');
+
+      setUserInfo(userInfo);
+      console.log('********************', userInfo);
+    } catch (error: any) {
+      console.log(error);
+      if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+      } else if (error.code === statusCodes.IN_PROGRESS) {
+        // operation (e.g. sign in) is in progress already
+      } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+        // play services not available or outdated
+      } else {
+        // some other error happened
+      }
+    }
+  };
   const HandelBackPress = () => {
     if (navigation.isFocused()) {
       return true;
@@ -28,6 +63,7 @@ const SingIn: React.FC<any> = ({navigation}) => {
 
     return () => backHandler.remove();
   }, []);
+
   return (
     <View
       style={{
@@ -91,6 +127,14 @@ const SingIn: React.FC<any> = ({navigation}) => {
             </TouchableOpacity>
           </View>
         </View>
+      </View>
+      <View style={{position: 'absolute', bottom: 100}}>
+        <GoogleSigninButton
+          size={GoogleSigninButton.Size.Wide}
+          color={GoogleSigninButton.Color.Light}
+          onPress={signIn}
+          disabled={false}
+        />
       </View>
     </View>
   );

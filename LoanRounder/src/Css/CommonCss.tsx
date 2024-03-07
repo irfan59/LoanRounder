@@ -3,7 +3,7 @@ const fontScale = PixelRatio.getFontScale();
 const getFontSize = (size: any) => size / fontScale;
 export const CommonStyles = StyleSheet.create({
   heading: {
-    fontSize: 28,
+    fontSize: getFontSize(28),
     color: '#000',
     fontWeight: '900',
   },
@@ -28,8 +28,13 @@ export const CommonStyles = StyleSheet.create({
   main: {
     width: '90%',
   },
+  maincontainer: {
+    marginTop: 50,
+    padding: 15,
+  },
   textinput: {
     padding: 7,
+    color: '#000',
   },
   center: {
     width: '100%',

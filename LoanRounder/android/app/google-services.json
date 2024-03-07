@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "217561752573",
+    "project_id": "singin-37656",
+    "storage_bucket": "singin-37656.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:217561752573:android:55b8f4c89bc9e22c716f94",
+        "android_client_info": {
+          "package_name": "com.loanrounder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "217561752573-9cvk4n6lou9f6946vrruoek4e5rri6bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWNB5FeCvCpTuwL-N2WOQnij6JWz9y1q4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "217561752573-9cvk4n6lou9f6946vrruoek4e5rri6bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

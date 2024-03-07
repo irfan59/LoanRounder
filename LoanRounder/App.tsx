@@ -9,6 +9,7 @@ import Dashboard from './src/Shared/Dashboard';
 import AboutUs from './src/Master/AboutUs';
 import TearmCondition from './src/Master/TearmCondition';
 import Profile from './src/Master/Profile';
+import Analytics from './src/Master/Analytics';
 
 const Stack = createNativeStackNavigator();
 
@@ -54,6 +55,11 @@ function App(): JSX.Element {
         <Stack.Screen
           name="Profile"
           component={Profile}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Analytics"
+          component={Analytics}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
