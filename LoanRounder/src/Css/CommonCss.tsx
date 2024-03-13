@@ -28,10 +28,7 @@ export const CommonStyles = StyleSheet.create({
   main: {
     width: '90%',
   },
-  maincontainer: {
-    marginTop: 50,
-    padding: 15,
-  },
+  maincontainer: {},
   textinput: {
     padding: 7,
     color: '#000',
@@ -59,5 +56,10 @@ export const CommonStyles = StyleSheet.create({
   },
   padding: {
     padding: 15,
+  },
+  linktext: {
+    color: '#7415C0',
+    textDecorationLine: 'underline',
+    fontWeight: '600',
   },
 });

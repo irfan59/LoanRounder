@@ -1,7 +1,7 @@
 import {View, Text, Dimensions, Image, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import {CommonStyles} from '../Css/CommonCss';
-import Footer from '../Shared/Footer';
+import Footer from '../Components/Footer';
 import {SidebarMenuData} from '../Components/SidebarMenu';
 import SideMenu from 'react-native-side-menu';
 import Header from '../Components/Header';

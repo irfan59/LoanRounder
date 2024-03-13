@@ -10,6 +10,8 @@ import AboutUs from './src/Master/AboutUs';
 import TearmCondition from './src/Master/TearmCondition';
 import Profile from './src/Master/Profile';
 import Analytics from './src/Master/Analytics';
+import ConnectBankAccount from './src/Master/ConnectBankAccount';
+import Setting from './src/Master/Setting';
 
 const Stack = createNativeStackNavigator();
 
@@ -60,6 +62,16 @@ function App(): JSX.Element {
         <Stack.Screen
           name="Analytics"
           component={Analytics}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="ConnectBankAccount"
+          component={ConnectBankAccount}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="Setting"
+          component={Setting}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

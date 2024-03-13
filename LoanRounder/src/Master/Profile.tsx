@@ -10,7 +10,7 @@ import {
 import React, {useState} from 'react';
 import SideMenu from 'react-native-side-menu';
 import {CommonStyles} from '../Css/CommonCss';
-import Footer from '../Shared/Footer';
+import Footer from '../Components/Footer';
 import Header from '../Components/Header';
 import {SidebarMenuData} from '../Components/SidebarMenu';
 
@@ -64,7 +64,7 @@ const Profile: React.FC<any> = ({navigation}) => {
             </TouchableOpacity>
           </View>
 
-          <View style={CommonStyles.maincontainer}>
+          <View style={CommonStyles.padding}>
             <View style={[CommonStyles.center]}>
               <Text style={CommonStyles.headingsmall}>Edit Profile</Text>
               <View>
