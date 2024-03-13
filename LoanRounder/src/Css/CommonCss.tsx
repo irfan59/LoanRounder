@@ -12,6 +12,10 @@ export const CommonStyles = StyleSheet.create({
     color: '#000',
     fontWeight: '900',
   },
+  textinputtext: {
+    fontSize: getFontSize(14),
+    color: '#000',
+  },
   text: {
     fontSize: getFontSize(14),
     color: '#000',

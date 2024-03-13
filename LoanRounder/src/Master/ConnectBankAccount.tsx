@@ -6,6 +6,7 @@ import {
   View,
   Image,
   TextInput,
+  ScrollView,
 } from 'react-native';
 import React, {useState} from 'react';
 import Header from '../Components/Header';
@@ -20,6 +21,7 @@ const ConnectBankAccount: React.FC<any> = ({navigation}) => {
   let windowWidth = Dimensions.get('window').width;
   const [isOpen, setIsOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -122,57 +124,122 @@ const ConnectBankAccount: React.FC<any> = ({navigation}) => {
             onBackdropPress={() => setShowModal(!showModal)}>
             <View style={styles.modalmain}>
               <View style={styles.modaltop}>
-                <Image
-                  style={styles.icon}
-                  source={require('../../assets/Imagesh/backarrow.png')}
-                />
+                <TouchableOpacity onPress={() => setShowModal(!showModal)}>
+                  <Image
+                    style={styles.icon}
+                    source={require('../../assets/Imagesh/backarrow.png')}
+                  />
+                </TouchableOpacity>
                 <Text style={CommonStyles.headingsmall}>Stripe</Text>
-                <Image
-                  style={styles.icon}
-                  source={require('../../assets/Imagesh/close.png')}
-                />
+                <TouchableOpacity onPress={() => setShowModal(!showModal)}>
+                  <Image
+                    style={styles.icon}
+                    source={require('../../assets/Imagesh/close.png')}
+                  />
+                </TouchableOpacity>
               </View>
               <View style={styles.modalmiddel}>
                 <Image
-                  style={styles.icon}
+                  style={[
+                    styles.icon,
+                    {position: 'absolute', top: '30%', left: 10},
+                  ]}
                   source={require('../../assets/Imagesh/search.png')}
                 />
-                <TextInput style={styles.input} placeholder="Search" />
+                <TextInput
+                  style={[styles.input, CommonStyles.textinputtext]}
+                  placeholder="Search"
+                />
               </View>
-              <View style={styles.modalbottom}>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/ally-bank-logo1.png')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/Bank-of-America-Emblem1.png')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/BMO-logo1.png')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/Chase_Bank-Logo1.png')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/hsbc1.png')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.card}>
-                  <Image
-                    source={require('../../assets/Imagesh/Trash/keybank1.png')}
-                  />
-                </TouchableOpacity>
-              </View>
+              <ScrollView>
+                <View style={styles.modalbottom}>
+                  <TouchableOpacity
+                    style={styles.card}
+                    onPress={() => setShowLogin(!showLogin)}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/ally-bank-logo1.png')}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.card}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/Bank-of-America-Emblem1.png')}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.card}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/BMO-logo1.png')}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.card}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/Chase_Bank-Logo1.png')}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.card}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/hsbc1.png')}
+                    />
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.card}>
+                    <Image
+                      source={require('../../assets/Imagesh/Trash/keybank1.png')}
+                    />
+                  </TouchableOpacity>
+                </View>
+              </ScrollView>
             </View>
           </Modal>
+          <>
+            <Modal
+              style={{margin: 0}}
+              isVisible={showLogin}
+              deviceWidth={windowWidth}
+              deviceHeight={windowHeight}
+              onBackdropPress={() => setShowLogin(!showLogin)}>
+              <View style={[styles.modalmain, {height: '70%'}]}>
+                <View style={[styles.modaltop, {marginBottom: 30}]}>
+                  <TouchableOpacity onPress={() => setShowLogin(!showLogin)}>
+                    <Image
+                      style={styles.icon}
+                      source={require('../../assets/Imagesh/backarrow.png')}
+                    />
+                  </TouchableOpacity>
+                  <Text style={CommonStyles.headingsmall}>Login to Stripe</Text>
+                  <TouchableOpacity onPress={() => setShowLogin(!showLogin)}>
+                    <Image
+                      style={styles.icon}
+                      source={require('../../assets/Imagesh/close.png')}
+                    />
+                  </TouchableOpacity>
+                </View>
+                <View>
+                  <TextInput
+                    placeholder="Username"
+                    placeholderTextColor={'#000'}
+                    style={styles.logininput}
+                  />
+                  <TextInput
+                    placeholder="Enter Password"
+                    placeholderTextColor={'#000'}
+                    style={[styles.logininput, CommonStyles.textinputtext]}
+                  />
+                  <View style={styles.mainbtn}>
+                    <TouchableOpacity
+                      style={[
+                        CommonStyles.btn,
+                        styles.btn,
+                        {backgroundColor: 'transparent'},
+                      ]}>
+                      <Text style={CommonStyles.colortext}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={[CommonStyles.btn, styles.btn]}>
+                      <Text style={CommonStyles.btntext}>Save</Text>
+                    </TouchableOpacity>
+                  </View>
+                </View>
+              </View>
+            </Modal>
+          </>
         </>
         <Footer navigation={navigation} />
       </SideMenu>
@@ -204,8 +271,11 @@ const styles = StyleSheet.create({
   },
   modaltop: {
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-  modalmiddel: {},
+  modalmiddel: {
+    marginVertical: 20,
+  },
   modalbottom: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -221,5 +291,28 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   icon: {},
-  input: {},
+  input: {
+    borderWidth: 0.5,
+    borderColor: 'grey',
+    padding: 10,
+    paddingLeft: 40,
+  },
+  logininput: {
+    borderWidth: 0.5,
+    borderColor: 'grey',
+    padding: 10,
+    marginVertical: 20,
+  },
+  mainbtn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginVertical: 10,
+  },
+  btn: {
+    borderWidth: 0.5,
+    borderColor: '#7415C0',
+    width: '25%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
