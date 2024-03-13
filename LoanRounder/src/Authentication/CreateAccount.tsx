@@ -75,7 +75,7 @@ const CreateAccount: React.FC<any> = ({navigation}) => {
             <Text style={CommonStyles.btntext}>Sing Up</Text>
           </TouchableOpacity>
           <View style={CommonStyles.center}>
-            <TouchableOpacity onPress={() => navigation.navigate('SingIn')}>
+            <TouchableOpacity onPress={() => navigation.push('SingIn')}>
               <Text style={CommonStyles.colortext}>
                 Already have a account? Sing in
               </Text>

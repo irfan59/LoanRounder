@@ -29,7 +29,7 @@ const Footer: React.FC<any> = ({navigation}) => {
               borderTopWidth: 3,
             },
           ]}
-          onPress={() => navigation.navigate('Dashboard')}>
+          onPress={() => navigation.push('Dashboard')}>
           <Image
             style={styles.img}
             source={require('../../assets/Imagesh/home.png')}
@@ -44,7 +44,7 @@ const Footer: React.FC<any> = ({navigation}) => {
               borderTopWidth: 3,
             },
           ]}
-          onPress={() => navigation.navigate('Profile')}>
+          onPress={() => navigation.push('Profile')}>
           <Image
             style={styles.img}
             source={require('../../assets/Imagesh/profile.png')}
@@ -66,7 +66,7 @@ const Footer: React.FC<any> = ({navigation}) => {
               borderTopWidth: 3,
             },
           ]}
-          onPress={() => navigation.navigate('Analytics')}>
+          onPress={() => navigation.push('Analytics')}>
           <Image
             style={styles.img}
             source={require('../../assets/Imagesh/analytics.png')}

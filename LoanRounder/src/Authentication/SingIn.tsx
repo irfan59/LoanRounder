@@ -108,19 +108,17 @@ const SingIn: React.FC<any> = ({navigation}) => {
             </View>
           </View>
           <View style={CommonStyles.center}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('ForgotPassword')}>
+            <TouchableOpacity onPress={() => navigation.push('ForgotPassword')}>
               <Text style={[CommonStyles.colortext]}>Forgot Password?</Text>
             </TouchableOpacity>
           </View>
           <TouchableOpacity
-            onPress={() => navigation.navigate('Dashboard')}
+            onPress={() => navigation.push('Dashboard')}
             style={[CommonStyles.btn, CommonStyles.center]}>
             <Text style={CommonStyles.btntext}>Continue</Text>
           </TouchableOpacity>
           <View style={CommonStyles.center}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate('CreateAccount')}>
+            <TouchableOpacity onPress={() => navigation.push('CreateAccount')}>
               <Text style={CommonStyles.colortext}>
                 Don't have an account? Sing up
               </Text>

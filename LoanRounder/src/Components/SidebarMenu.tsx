@@ -17,19 +17,19 @@ const SidebarMenuData: React.FC<any> = ({navigation}) => (
     <View style={{padding: 15, gap: 30}}>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('Profile')}>
+        onPress={() => navigation.push('Profile')}>
         <Image source={require('../../assets/Imagesh/editprofile.png')} />
         <Text style={CommonStyles.sidebartext}>Edit Profile</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('Setting')}>
+        onPress={() => navigation.push('Setting')}>
         <Image source={require('../../assets/Imagesh/settingwhite.png')} />
         <Text style={CommonStyles.sidebartext}>Settings</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('ConnectBankAccount')}>
+        onPress={() => navigation.push('ConnectBankAccount')}>
         <Image source={require('../../assets/Imagesh/paymentwhite.png')} />
         <Text style={CommonStyles.sidebartext}>Payment Account</Text>
       </TouchableOpacity>
@@ -39,7 +39,7 @@ const SidebarMenuData: React.FC<any> = ({navigation}) => (
       </TouchableOpacity>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('Analytics')}>
+        onPress={() => navigation.push('Analytics')}>
         <Image source={require('../../assets/Imagesh/analyticswhite.png')} />
         <Text style={CommonStyles.sidebartext}>Analytics</Text>
       </TouchableOpacity>
@@ -57,13 +57,13 @@ const SidebarMenuData: React.FC<any> = ({navigation}) => (
       </TouchableOpacity>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('AboutUs')}>
+        onPress={() => navigation.push('AboutUs')}>
         {/* <Image source={require('../../assets/Imagesh/logoutwhite.png')} /> */}
         <Text style={CommonStyles.sidebartext}>About Us</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={CommonStyles.sidebarlist}
-        onPress={() => navigation.navigate('Tearm')}>
+        onPress={() => navigation.push('Tearm')}>
         {/* <Image source={require('../../assets/Imagesh/logoutwhite.png')} /> */}
         <Text style={CommonStyles.sidebartext}>Tearm & Condition</Text>
       </TouchableOpacity>

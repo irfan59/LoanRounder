@@ -11,7 +11,7 @@ const SplashScreen: React.FC<any> = ({navigation}) => {
   }, []);
   const Verify = () => {
     setTimeout(() => {
-      navigation.navigate('SingIn');
+      navigation.push('SingIn');
     }, 700);
   };
   return (
