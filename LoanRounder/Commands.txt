@@ -1,0 +1,5 @@
+platform navigation :-  C:\Users\IRFAN\AppData\Local\Android\Sdk\platform-tools
+
+adb 8081 :- ./adb reverse tcp:8081  tcp:8081
+
+bundel file :-   npx react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
